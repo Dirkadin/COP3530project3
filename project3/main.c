@@ -8,9 +8,9 @@
 
 #include <stdio.h>
 
-int main(int argc, const char * argv[]) {
-	
-	int size = 0;
+int size = 0;
+
+void startGame() {
 	
 	printf("This program lets the user create a Binary Search Tree or a Heap.\n\n");
 	printf("It asks the user to enter the number of nodes to be created.\n\n");
@@ -32,6 +32,12 @@ int main(int argc, const char * argv[]) {
 	scanf("%c", selection);
 	
 	printf("\n\n%s", selection);
+	
+}
+
+int main(int argc, const char * argv[]) {
+	
+	startGame();
 	
 	return 0;
 }
