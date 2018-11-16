@@ -7,8 +7,19 @@
 //
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include "BinarySearchTree.h"
+
+int menu() {
+	printf("What do you wish to do?\n");
+	printf("Display In-order Traversal (1) Display Level-order Traversal (2) Display Both Traversals (3) Display as a tree (4) SearchHeap(5) InsertHeap(6) Check if AVL(7) Quit(Q)\n");
+	printf("Please enter a choice: ");
+	
+	int choice = -1;
+	scanf("%d", &choice);
+	
+	return choice;
+}
 
 int main(int argc, const char * argv[]) {
 	
@@ -33,7 +44,26 @@ int main(int argc, const char * argv[]) {
 	printf("What do you wish to create –a Binary search Tree (T) or a Min-Heap (H)?: ");
 	scanf("%s", selection);
 	
-	printf("\n\n%s", selection);
+	if (selection[0] == 'T') { //Tree selected
+		//Create Tree
+		
+		Tree *bst = NULL;
+		for (int i = 0; i < size; i++) {
+			bst = add(bst, myNums[i]);
+		}
+		printf("\nTree created successfully!\n");
+		
+		int menuChoice = 0;
+		menuChoice = menu();
+		
+		if (menuChoice == 1) {
+			traverseInOrder(bst);
+		}
+		
+	} else if (selection[0] == 'H') { //Min-Heap selected
+		//Create Min-Heap
+		printf("\nMin-Heap created successfully!\n");
+	}
 	
 	return 0;
 }
