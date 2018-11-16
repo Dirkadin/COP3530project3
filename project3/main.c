@@ -7,10 +7,10 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int size = 0;
-
-void startGame() {
+int main(int argc, const char * argv[]) {
 	
 	printf("This program lets the user create a Binary Search Tree or a Heap.\n\n");
 	printf("It asks the user to enter the number of nodes to be created.\n\n");
@@ -18,26 +18,22 @@ void startGame() {
 	printf("Then it asks the user to enter the data values for thespecified number ofnodes.\n\n");
 	printf("-------------------------------------------------------------------------------------------\n\n");
 	
+	int size = 0;
 	printf("Enter the number of nodes in the structureto be initially created: ");
 	scanf("%d", &size);
 	
-	int myNum[size];
+	int myNums[size];
+	
 	for (int i = 0; i < size; i++) {
 		printf("\n\nEnter the data value to be placed in the node: ");
-		scanf("%d", &myNum[i]);
+		scanf("%d", &myNums[i]);
 	}
 	
-	char *selection = NULL;
+	char selection[1];
 	printf("What do you wish to create –a Binary search Tree (T) or a Min-Heap (H)?: ");
-	scanf("%c", selection);
+	scanf("%s", selection);
 	
 	printf("\n\n%s", selection);
-	
-}
-
-int main(int argc, const char * argv[]) {
-	
-	startGame();
 	
 	return 0;
 }
