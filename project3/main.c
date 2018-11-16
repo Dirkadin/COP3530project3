@@ -56,8 +56,35 @@ int main(int argc, const char * argv[]) {
 		int menuChoice = 0;
 		menuChoice = menu();
 		
-		if (menuChoice == 1) {
-			traverseInOrder(bst);
+		switch (menuChoice) {
+			case 1:
+				//in order
+				break;
+			case 2:
+				//level order
+				break;
+			case 3:
+				//in order and level order
+				break;
+			case 4:
+				//Display as tree
+				break;
+			case 5:
+				//Search heap
+				break;
+			case 6:
+				//insert heap
+				break;
+			case 7:
+				//check if avl
+				break;
+			case 8:
+				//quit
+				break;
+				
+			default:
+				//you broke it
+				break;
 		}
 		
 	} else if (selection[0] == 'H') { //Min-Heap selected
