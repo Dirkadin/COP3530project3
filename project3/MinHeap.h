@@ -26,10 +26,13 @@ typedef struct minHeap {
 minHeap createMinHeap(int);
 void buildMinHeap(minHeap*, int*, int);
 void insert(minHeap*, int);
+void removeNode(minHeap*);
+void validateMinHeap(minHeap*, int);
 
 //Helper functions
 int findParent(int);
 int findLeftChild(int);
 int findRightChild(int);
+void swap(node*, node*);
 
 #endif /* MinHeap_h */
