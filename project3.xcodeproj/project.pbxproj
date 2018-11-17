@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43312223219F4D2200C75218 /* BinarySearchTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 43312221219F4D2200C75218 /* BinarySearchTree.c */; };
+		434F134721A073CA0061FDFC /* MinHeap.c in Sources */ = {isa = PBXBuildFile; fileRef = 434F134621A073CA0061FDFC /* MinHeap.c */; };
 		438FB636219B20700091B117 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 438FB635219B20700091B117 /* main.c */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		43312221219F4D2200C75218 /* BinarySearchTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BinarySearchTree.c; sourceTree = "<group>"; };
+		43312222219F4D2200C75218 /* BinarySearchTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinarySearchTree.h; sourceTree = "<group>"; };
+		434F134521A073CA0061FDFC /* MinHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinHeap.h; sourceTree = "<group>"; };
+		434F134621A073CA0061FDFC /* MinHeap.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MinHeap.c; sourceTree = "<group>"; };
 		438FB632219B20700091B117 /* project3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = project3; sourceTree = BUILT_PRODUCTS_DIR; };
 		438FB635219B20700091B117 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,7 +63,11 @@
 		438FB634219B20700091B117 /* project3 */ = {
 			isa = PBXGroup;
 			children = (
+				43312221219F4D2200C75218 /* BinarySearchTree.c */,
+				43312222219F4D2200C75218 /* BinarySearchTree.h */,
 				438FB635219B20700091B117 /* main.c */,
+				434F134521A073CA0061FDFC /* MinHeap.h */,
+				434F134621A073CA0061FDFC /* MinHeap.c */,
 			);
 			path = project3;
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434F134721A073CA0061FDFC /* MinHeap.c in Sources */,
+				43312223219F4D2200C75218 /* BinarySearchTree.c in Sources */,
 				438FB636219B20700091B117 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +253,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J7HZPMJ4B;
+				GCC_VERSION = gcc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -250,6 +263,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J7HZPMJ4B;
+				GCC_VERSION = gcc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
