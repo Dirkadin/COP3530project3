@@ -95,6 +95,16 @@ void levelOrder(minHeap *mh) {
 	}
 }
 
+void inOrder(minHeap *mh, int index) {
+	if (findLeftChild(index) < mh->size) {
+		inOrder(mh, findLeftChild(index));
+	}
+	printf("%d ", mh->element[index].value);
+	if (findRightChild(index) < mh->size) {
+		inOrder(mh, findRightChild(index));
+	}
+}
+
 
 ///MARK: Helper functions
 //Returns index of parent

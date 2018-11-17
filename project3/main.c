@@ -101,16 +101,13 @@ int main(int argc, const char * argv[]) {
 		minHeap *mh = &temp;
 		buildMinHeap(mh, myNums, size);
 		
-		for (int i = 0; i < size; i++) {
-			printf("%d ", mh->element[i].value);
-		}
-		
 		int menuChoice = 0;
 		menuChoice = menu();
 		
 		switch (menuChoice) {
 			case 1:
 				//in order
+				inOrder(mh, 1);
 				break;
 			case 2:
 				//level order

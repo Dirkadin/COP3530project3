@@ -29,6 +29,7 @@ void insert(minHeap*, int);
 void removeNode(minHeap*);
 void percolate(minHeap*, int);
 void levelOrder(minHeap*);
+void inOrder(minHeap*, int);
 
 //Helper functions
 int findParent(int);
