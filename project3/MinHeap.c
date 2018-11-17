@@ -8,7 +8,6 @@
 
 #include "MinHeap.h"
 
-
 //Creates and returns a Min-Heap
 minHeap createMinHeap(int size) {
 	minHeap mh;
@@ -28,6 +27,10 @@ void buildMinHeap(minHeap *mh, int *arr, int size) {
 		node newNode;
 		newNode.value = arr[i];
 		mh->element[(mh->size)++] = newNode;
+	}
+	
+	for(int i = (mh->size - 1) / 2; i >= 0; i--) {
+		percolate(mh, i);
 	}
 	
 }
@@ -56,10 +59,39 @@ void removeNode(minHeap *mh) {
 	if (mh->size) {
 		mh->element[0] = mh->element[mh->size - 1];
 		//Need to update with some sort of memory reallocation
-		validateMinHeap(mh, 0); //revalideate our heap
+		percolate(mh, 0); //revalideate our heap
 	} else {
 		//If passed heep is empty
 		printf("The heap you passed is empty!!!");
+	}
+}
+
+void percolate(minHeap *mh, int index) {
+	int smallest;
+	//Checking to see if MinHeap rules are followed in our array
+	if (findLeftChild(index) < mh->size
+		&& mh->element[findLeftChild(index)].value < mh->element[index].value) {
+		smallest = findLeftChild(index);
+	} else {
+		smallest = index;
+	}
+	
+	if (findRightChild(index) < mh->size
+		&& mh->element[findRightChild(index)].value < mh->element[smallest].value) {
+		smallest = findRightChild(index);
+	}
+	
+	//Performs the swap if our smallest element is not at the index
+	if (smallest != index) {
+		swap(&(mh->element[index]), &(mh->element[smallest]));
+		percolate(mh, smallest); //Recursivly checking the rest of the heap
+	}
+	//My head hurts after that
+}
+
+void levelOrder(minHeap *mh) {
+	for (int i = 0; i < mh->size; i++) {
+		printf("%d ", mh->element[i].value);
 	}
 }
 
@@ -85,22 +117,4 @@ void swap(node *first, node *second) {
 	node temp = *first;
 	*first = *second;
 	*second = temp;
-}
-
-void validateMinHeap(minHeap *mh, int index) {
-	int smallest;
-	//Checking to see if MinHeap rules are followed in our array
-	if (findLeftChild(index) < mh->size
-		&& mh->element[findLeftChild(index)].value < mh->element[index].value) {
-		smallest = findLeftChild(index);
-	} else {
-		smallest = index;
-	}
-	
-	//Performs the swap if our smallest element is not at the index
-	if (smallest != index) {
-		swap(&(mh->element[index]), &(mh->element[smallest]));
-		validateMinHeap(mh, smallest); //Recursivly checking the rest of the heap
-	}
-	//My head hurts after that
 }

@@ -27,7 +27,8 @@ minHeap createMinHeap(int);
 void buildMinHeap(minHeap*, int*, int);
 void insert(minHeap*, int);
 void removeNode(minHeap*);
-void validateMinHeap(minHeap*, int);
+void percolate(minHeap*, int);
+void levelOrder(minHeap*);
 
 //Helper functions
 int findParent(int);
