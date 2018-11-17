@@ -322,3 +322,21 @@ int searchBST(Tree* node, int key) {
 	
 	return 0;
 }
+
+int checkAVL(Tree* node) {
+	
+	if (node == NULL) {
+		return 0;
+	}
+	
+	int balance = getBalance(node);
+	
+	if (balance == -1 || balance == 0 || balance == 1) {
+		checkAVL(node->left);
+		checkAVL(node->right);
+	} else {
+		return 0;
+	}
+
+	return 1;
+}

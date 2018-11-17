@@ -45,5 +45,6 @@ int max(int,int);
 int getBalance(Tree*);
 void displayAsTree(Tree*);
 int searchBST(Tree*, int);
+int checkAVL(Tree*);
 
 #endif /* BinarySearchTree_h */

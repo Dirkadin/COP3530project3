@@ -140,3 +140,17 @@ int searchHeap(minHeap* mh, int key) {
 	}
 	return 0;
 }
+
+int checkAVLheap(minHeap* mh) {
+	if (mh == NULL) {
+		return 0;
+	}
+	
+	for (int i = 0; i < mh->size; i++) {
+		if (mh->size == 0) {
+			return 0;
+		}
+	}
+	
+	return 1;
+}

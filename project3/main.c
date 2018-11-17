@@ -96,6 +96,12 @@ int main(int argc, const char * argv[]) {
 				break;
 			case 7:
 				//check if avl
+				menuChoice = checkAVL(bst);
+				if (menuChoice == 1) {
+					printf("\nBST is balanced!\n");
+				} else {
+					printf("\nBST is not balanced!\n");
+				}
 				break;
 			case 8:
 				//quit
@@ -104,6 +110,7 @@ int main(int argc, const char * argv[]) {
 				
 			default:
 				//you broke it
+				exit(-1);
 				break;
 		}
 		
@@ -129,7 +136,9 @@ int main(int argc, const char * argv[]) {
 				break;
 			case 3:
 				//in order and level order
-				
+				inOrder(mh, 0);
+				printf("\n");
+				levelOrder(mh);
 				break;
 			case 4:
 				//Display as tree
@@ -149,6 +158,12 @@ int main(int argc, const char * argv[]) {
 				break;
 			case 7:
 				//check if avl
+				menuChoice = checkAVLheap(mh);
+				if (menuChoice == 1) {
+					printf("\nMin-Heap is balanced!\n");
+				} else {
+					printf("\nMin-Heap is not balanced!\n");
+				}
 				break;
 			case 8:
 				//quit
@@ -157,6 +172,7 @@ int main(int argc, const char * argv[]) {
 				
 			default:
 				//you broke it
+				exit(-1);
 				break;
 		}
 		

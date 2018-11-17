@@ -37,5 +37,6 @@ int findLeftChild(int);
 int findRightChild(int);
 void swap(node*, node*);
 int searchHeap(minHeap*, int);
+int checkAVLheap(minHeap*);
 
 #endif /* MinHeap_h */
