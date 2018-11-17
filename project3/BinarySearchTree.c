@@ -293,3 +293,32 @@ int max(int x, int y) {
 int getBalance(Tree* node) {
 	return height(node->left) - height(node->right);
 }
+
+void displayAsTree(Tree* node) {
+	
+	if (node==NULL) {
+		return;
+	}
+	
+//	int depth = findDepth(node);
+//	int tabs = depth - 1;
+	
+	
+}
+
+int searchBST(Tree* node, int key) {
+	if (node == NULL) {
+		return 0;
+	}
+	
+	if (node->value == key) {
+		printf("\nKey found!\n");
+		return 1;
+	} else if (node->left) {
+		searchBST(node->left, key);
+	} else if (node->right) {
+		searchBST(node->right, key);
+	}
+	
+	return 0;
+}

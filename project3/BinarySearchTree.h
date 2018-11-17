@@ -43,5 +43,7 @@ Tree* deQueue(Tree**, int*);
 int height(Tree*);
 int max(int,int);
 int getBalance(Tree*);
+void displayAsTree(Tree*);
+int searchBST(Tree*, int);
 
 #endif /* BinarySearchTree_h */

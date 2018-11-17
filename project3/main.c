@@ -22,6 +22,13 @@ int menu() {
 	return choice;
 }
 
+int getKey() {
+	printf("What value you would you like to look for or add? ");
+	int value = 0;
+	scanf("%d", &value);
+	return value;
+}
+
 int main(int argc, const char * argv[]) {
 	
 	printf("This program lets the user create a Binary Search Tree or a Heap.\n\n");
@@ -73,12 +80,19 @@ int main(int argc, const char * argv[]) {
 				break;
 			case 4:
 				//Display as tree
+				displayAsTree(bst);
 				break;
 			case 5:
-				//Search heap
-				break;
+				//Search tree
+				menuChoice = searchBST(bst, getKey());
+				if (menuChoice == 0) {
+					printf("\n%d was not found.\n", menuChoice);
+				} else {
+					printf("\n%d was found.\n", menuChoice);
+				}
 			case 6:
-				//insert heap
+				//insert tree
+				bst = add(bst, getKey());
 				break;
 			case 7:
 				//check if avl
@@ -107,7 +121,7 @@ int main(int argc, const char * argv[]) {
 		switch (menuChoice) {
 			case 1:
 				//in order
-				inOrder(mh, 1);
+				inOrder(mh, 0);
 				break;
 			case 2:
 				//level order
@@ -115,15 +129,23 @@ int main(int argc, const char * argv[]) {
 				break;
 			case 3:
 				//in order and level order
+				
 				break;
 			case 4:
 				//Display as tree
 				break;
 			case 5:
 				//Search heap
+				menuChoice = searchHeap(mh, getKey());
+				if (menuChoice == 0) {
+					printf("\n%d was not found.\n", menuChoice);
+				} else {
+					printf("\n%d was found.\n", menuChoice);
+				}
 				break;
 			case 6:
 				//insert heap
+				insert(mh, getKey());
 				break;
 			case 7:
 				//check if avl

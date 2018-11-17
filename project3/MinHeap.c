@@ -128,3 +128,15 @@ void swap(node *first, node *second) {
 	*first = *second;
 	*second = temp;
 }
+
+int searchHeap(minHeap* mh, int key) {
+	if (mh == NULL) {
+		return 0;
+	}
+	for (int i = 0; i < mh->size; i++) {
+		if (mh->element[i].value == key) {
+			return 1;
+		}
+	}
+	return 0;
+}
