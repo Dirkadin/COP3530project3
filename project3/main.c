@@ -62,57 +62,62 @@ int main(int argc, const char * argv[]) {
 		printf("\nTree created successfully!\n");
 		
 		int menuChoice = 0;
-		menuChoice = menu();
 		
-		switch (menuChoice) {
-			case 1:
-				traverseInOrder(bst);
-				break;
-			case 2:
-				//level order
-				traverseLevelOrder(bst);
-				break;
-			case 3:
-				//in order and level order
-				traverseInOrder(bst);
-				printf("\n");
-				traverseLevelOrder(bst);
-				break;
-			case 4:
-				//Display as tree
-				displayAsTree(bst);
-				break;
-			case 5:
-				//Search tree
-				menuChoice = searchBST(bst, getKey());
-				if (menuChoice == 0) {
-					printf("\n%d was not found.\n", menuChoice);
-				} else {
-					printf("\n%d was found.\n", menuChoice);
-				}
-			case 6:
-				//insert tree
-				bst = add(bst, getKey());
-				break;
-			case 7:
-				//check if avl
-				menuChoice = checkAVL(bst);
-				if (menuChoice == 1) {
-					printf("\nBST is balanced!\n");
-				} else {
-					printf("\nBST is not balanced!\n");
-				}
-				break;
-			case 8:
-				//quit
-				exit(0);
-				break;
-				
-			default:
-				//you broke it
-				exit(-1);
-				break;
+		while (1) {
+			menuChoice = menu();
+			
+			switch (menuChoice) {
+				case 1:
+					traverseInOrder(bst);
+					break;
+				case 2:
+					//level order
+					traverseLevelOrder(bst);
+					break;
+				case 3:
+					//in order and level order
+					traverseInOrder(bst);
+					printf("\n");
+					traverseLevelOrder(bst);
+					break;
+				case 4:
+					//Display as tree
+					displayAsTree(bst);
+					//				printTree(bst);
+					break;
+				case 5:
+					//Search tree
+					menuChoice = searchBST(bst, getKey());
+					if (menuChoice == 0) {
+						printf("\n%d was not found.\n", menuChoice);
+					} else {
+						printf("\n%d was found.\n", menuChoice);
+					}
+				case 6:
+					//insert tree
+					bst = add(bst, getKey());
+					break;
+				case 7:
+					//check if avl
+					menuChoice = checkAVL(bst);
+					if (menuChoice == 1) {
+						printf("\nBST is balanced!\n");
+					} else {
+						printf("\nBST is not balanced!\n");
+					}
+					break;
+				case 8:
+					//quit
+					exit(0);
+					break;
+					
+				default:
+					//you broke it
+					exit(-1);
+					break;
+			}
 		}
+		
 		
 	} else if (selection[0] == 'H') { //Min-Heap selected
 		//Create Min-Heap

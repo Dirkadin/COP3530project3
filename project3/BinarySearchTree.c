@@ -296,12 +296,59 @@ int getBalance(Tree* node) {
 
 void displayAsTree(Tree* node) {
 	
-	if (node==NULL) {
-		return;
+	int head, tail;
+	int height = node->height;
+	int totalNodes = pow(2, (double) height + 1) - 1;
+	
+	Tree *temp = node;
+	
+	//Dummy node to show that this spot is blank
+	Tree *dummy = (Tree*) malloc(sizeof (Tree));
+	dummy->counter = 0;
+	dummy->height = 0;
+	dummy->left = NULL;
+	dummy->right = NULL;
+	dummy->value = -1;
+	
+	Tree** queue = createQueue(&head, &tail);
+	int printArray[totalNodes];
+	int index = 0;
+	
+	printArray[index] = node->value;
+	index++;
+	
+	while (temp) {
+		if (head == tail && head != 0) {
+			break;
+		}
+		
+		if (temp->left) {
+			enQueue(queue, &tail, temp->left);
+			printArray[index] = temp->left->value;
+			index++;
+		} else {
+			printArray[index] = -1;
+			index++;
+		}
+		
+		if (temp->right) {
+			enQueue(queue, &tail, temp->right);
+			printArray[index] = temp->right->value;
+			index++;
+		} else {
+			printArray[index] = -1;
+			index++;
+		}
+		temp = deQueue(queue, &head);
 	}
 	
-//	int depth = findDepth(node);
-//	int tabs = depth - 1;
+	for (int i = 0; i < totalNodes; i++) {
+		printf("%d ", printArray[i]);
+	}
+	
+	free(dummy);
+	free(queue);
+	
 	
 	
 }
