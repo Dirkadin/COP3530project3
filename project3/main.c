@@ -12,7 +12,7 @@
 #include "MinHeap.h"
 
 int menu() {
-	printf("What do you wish to do?\n");
+	printf("\nWhat do you wish to do?\n");
 	printf("Display In-order Traversal (1) Display Level-order Traversal (2) Display Both Traversals (3) Display as a tree (4) SearchHeap(5) InsertHeap(6) Check if AVL(7) Quit(Q)\n");
 	printf("Please enter a choice: ");
 	

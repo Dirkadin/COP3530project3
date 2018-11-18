@@ -317,6 +317,7 @@ void displayAsTree(Tree* node) {
 	printArray[index] = node->value;
 	index++;
 	
+	//Add tree to a queue to get a level order array of values
 	while (temp) {
 		if (head == tail && head != 0) {
 			break;
@@ -342,14 +343,47 @@ void displayAsTree(Tree* node) {
 		temp = deQueue(queue, &head);
 	}
 	
-	for (int i = 0; i < totalNodes; i++) {
-		printf("%d ", printArray[i]);
-	}
-	
 	free(dummy);
 	free(queue);
 	
+	int topDown = node->height; //how many initial tabs
+	int bottomUp = 0; //how many things to print
+	index = 0;
 	
+	//Rows
+	for (int i = 0; i < node->height + 1; ++i) {
+		while (topDown !=  -1) {
+			for (int k = 0; k < pow(2, topDown) - 1; k++) { //good
+				printf("   ");
+			}
+			printf("%d", printArray[index]);
+			index++;
+			
+			//Are thre more things to print?
+			if (bottomUp != 0) {
+				//How many?
+				for (int i = 0; i < pow(2, bottomUp) - 1; i++) {
+					//Appropriate number of tabs
+					for (int j = 0; j < pow(2, topDown + 1) - 1; j++) {
+						printf("   ");
+					}
+					//print the value
+					if (printArray[index] == -1) {
+						printf("   ");
+					} else {
+						printf("%d", printArray[index]);
+					}
+
+					index++;
+				}
+			}
+			printf("\n");
+			
+			topDown--;
+			bottomUp++;
+		}
+	}
+
 	
 }
 
