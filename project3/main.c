@@ -13,7 +13,7 @@
 
 int menu() {
 	printf("\nWhat do you wish to do?\n");
-	printf("Display In-order Traversal (1) Display Level-order Traversal (2) Display Both Traversals (3) Display as a tree (4) SearchHeap(5) InsertHeap(6) Check if AVL(7) Quit(Q)\n");
+	printf("Display In-order Traversal (1) Display Level-order Traversal (2) Display Both Traversals (3) Display as a tree (4) SearchHeap(5) InsertHeap(6) Check if AVL(7) Quit(8)\n");
 	printf("Please enter a choice: ");
 	
 	int choice = -1;
@@ -83,7 +83,6 @@ int main(int argc, const char * argv[]) {
 				case 4:
 					//Display as tree
 					displayAsTree(bst);
-					//				printTree(bst);
 					break;
 				case 5:
 					//Search tree
@@ -127,58 +126,60 @@ int main(int argc, const char * argv[]) {
 		minHeap *mh = &temp;
 		buildMinHeap(mh, myNums, size);
 		
-		int menuChoice = 0;
-		menuChoice = menu();
-		
-		switch (menuChoice) {
-			case 1:
-				//in order
-				inOrder(mh, 0);
-				break;
-			case 2:
-				//level order
-				levelOrder(mh);
-				break;
-			case 3:
-				//in order and level order
-				inOrder(mh, 0);
-				printf("\n");
-				levelOrder(mh);
-				break;
-			case 4:
-				//Display as tree
-				break;
-			case 5:
-				//Search heap
-				menuChoice = searchHeap(mh, getKey());
-				if (menuChoice == 0) {
-					printf("\n%d was not found.\n", menuChoice);
-				} else {
-					printf("\n%d was found.\n", menuChoice);
-				}
-				break;
-			case 6:
-				//insert heap
-				insert(mh, getKey());
-				break;
-			case 7:
-				//check if avl
-				menuChoice = checkAVLheap(mh);
-				if (menuChoice == 1) {
-					printf("\nMin-Heap is balanced!\n");
-				} else {
-					printf("\nMin-Heap is not balanced!\n");
-				}
-				break;
-			case 8:
-				//quit
-				exit(0);
-				break;
-				
-			default:
-				//you broke it
-				exit(-1);
-				break;
+		while (1) {
+			int menuChoice = 0;
+			menuChoice = menu();
+			
+			switch (menuChoice) {
+				case 1:
+					//in order
+					inOrder(mh, 0);
+					break;
+				case 2:
+					//level order
+					levelOrder(mh);
+					break;
+				case 3:
+					//in order and level order
+					inOrder(mh, 0);
+					printf("\n");
+					levelOrder(mh);
+					break;
+				case 4:
+					//Display as tree
+					break;
+				case 5:
+					//Search heap
+					menuChoice = searchHeap(mh, getKey());
+					if (menuChoice == 0) {
+						printf("\n%d was not found.\n", menuChoice);
+					} else {
+						printf("\n%d was found.\n", menuChoice);
+					}
+					break;
+				case 6:
+					//insert heap
+					insert(mh, getKey());
+					break;
+				case 7:
+					//check if avl
+					menuChoice = checkAVLheap(mh);
+					if (menuChoice == 1) {
+						printf("\nMin-Heap is balanced!\n");
+					} else {
+						printf("\nMin-Heap is not balanced!\n");
+					}
+					break;
+				case 8:
+					//quit
+					exit(0);
+					break;
+					
+				default:
+					//you broke it
+					exit(-1);
+					break;
+			}
 		}
 		
 	}
