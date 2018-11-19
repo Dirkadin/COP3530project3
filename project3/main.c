@@ -147,6 +147,7 @@ int main(int argc, const char * argv[]) {
 					break;
 				case 4:
 					//Display as tree
+					displayAsHeap(mh, size);
 					break;
 				case 5:
 					//Search heap

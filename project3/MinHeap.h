@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include "MinHeap.c"
+#include <math.h>
 
 typedef struct minHeapNode {
 	int value;
@@ -30,6 +30,7 @@ void removeNode(minHeap*);
 void percolate(minHeap*, int);
 void levelOrder(minHeap*);
 void inOrder(minHeap*, int);
+void displayAsHeap(minHeap*, int);
 
 //Helper functions
 int findParent(int);

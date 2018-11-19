@@ -154,3 +154,56 @@ int checkAVLheap(minHeap* mh) {
 	
 	return 1;
 }
+
+void displayAsHeap(minHeap* mh, int size) {
+	
+	if (mh == NULL) {
+		return;
+	}
+	
+	int height = size;
+	printf("%d\n", height);
+	height = height / 2;
+	printf("%d\n", height);
+	
+	for (int z = 0; z < 5; z++) {
+		printf("%d ", mh->element[z].value);
+	}
+	
+	int topDown = height;
+	int bottomUp = 0;
+	int index = 0;
+	
+	for (int i = 0; i < height + 1; ++i) {
+		while (topDown !=  -1) {
+			for (int k = 0; k < pow(2, topDown) - 1; k++) { //good
+				printf("   ");
+			}
+			printf("%d", mh->element[index].value);
+			index++;
+			
+			//Are thre more things to print?
+			if (bottomUp != 0) {
+				//How many?
+				for (int i = 0; i < pow(2, bottomUp) - 1; i++) {
+					//Appropriate number of tabs
+					for (int j = 0; j < pow(2, topDown + 1) - 1; j++) {
+						printf("   ");
+					}
+					//print the value
+					if (mh->element[index].value == -1) {
+						printf("   ");
+					} else {
+						printf("%d", mh->element[index].value);
+					}
+					
+					index++;
+				}
+			}
+			printf("\n");
+			
+			topDown--;
+			bottomUp++;
+		}
+	}
+}
