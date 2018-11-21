@@ -165,7 +165,6 @@ int findDepth(Tree *node) {
 
 void traversePreOrder(Tree* node) {
 	if (node != NULL) {
-//		printf("%d X %d\n", node->value, node->counter);
 		printf("%d\t", node->value);
 		traversePreOrder(node->left);
 		traversePreOrder(node->right);
@@ -176,7 +175,6 @@ void traversePostOrder(Tree* node) {
 	if (node != NULL) {
 		traversePostOrder(node->left);
 		traversePostOrder(node->right);
-//		printf("%d X %d\n", node->value, node->counter);
 		printf("%d\t", node->value);
 	}
 }
@@ -184,7 +182,6 @@ void traversePostOrder(Tree* node) {
 void traverseInOrder(Tree* node) {
 	if (node != NULL) {
 		traverseInOrder(node->left);
-//		printf("%d X %d\n", node->value, node->counter);
 		printf("%d\t", node->value);
 		traverseInOrder(node->right);
 	}
@@ -220,7 +217,7 @@ void traverseLevelOrder(Tree* root) {
 	while (temp) {
 		
 		//Print current node
-		printf("%d\n", temp->value);
+		printf("%d\t", temp->value);
 		
 		if (head == tail && head != 0) {
 			break;
@@ -350,10 +347,12 @@ void displayAsTree(Tree* node) {
 	int bottomUp = 0; //how many things to print
 	index = 0;
 	
+	int i, k, j;
+	
 	//Rows
-	for (int i = 0; i < node->height + 1; ++i) {
+	for ( i = 0; i < node->height + 1; ++i) {
 		while (topDown !=  -1) {
-			for (int k = 0; k < pow(2, topDown) - 1; k++) { //good
+			for ( k = 0; k < pow(2, topDown) - 1; k++) { //good
 				printf("   ");
 			}
 			printf("%d", printArray[index]);
@@ -362,9 +361,9 @@ void displayAsTree(Tree* node) {
 			//Are thre more things to print?
 			if (bottomUp != 0) {
 				//How many?
-				for (int i = 0; i < pow(2, bottomUp) - 1; i++) {
+				for ( i = 0; i < pow(2, bottomUp) - 1; i++) {
 					//Appropriate number of tabs
-					for (int j = 0; j < pow(2, topDown + 1) - 1; j++) {
+					for ( j = 0; j < pow(2, topDown + 1) - 1; j++) {
 						printf("   ");
 					}
 					//print the value

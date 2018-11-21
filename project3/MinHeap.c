@@ -18,7 +18,9 @@ minHeap createMinHeap(int size) {
 //Builds the min heap
 void buildMinHeap(minHeap *mh, int *arr, int size) {
 	
-	for (int i = 0; i < size; ++i) {
+	int i;
+	
+	for ( i = 0; i < size; ++i) {
 		if (mh->size) {
 			mh->element = realloc(mh->element, (mh->size + 1) *sizeof(node));
 		} else {
@@ -90,7 +92,8 @@ void percolate(minHeap *mh, int index) {
 }
 
 void levelOrder(minHeap *mh) {
-	for (int i = 0; i < mh->size; i++) {
+	int i;
+	for ( i = 0; i < mh->size; i++) {
 		printf("%d ", mh->element[i].value);
 	}
 }
@@ -133,7 +136,9 @@ int searchHeap(minHeap* mh, int key) {
 	if (mh == NULL) {
 		return 0;
 	}
-	for (int i = 0; i < mh->size; i++) {
+	
+	int i;
+	for ( i = 0; i < mh->size; i++) {
 		if (mh->element[i].value == key) {
 			return 1;
 		}
@@ -146,7 +151,9 @@ int checkAVLheap(minHeap* mh) {
 		return 0;
 	}
 	
-	for (int i = 0; i < mh->size; i++) {
+	int i;
+	
+	for ( i = 0; i < mh->size; i++) {
 		if (mh->size == 0) {
 			return 0;
 		}
@@ -161,12 +168,14 @@ void displayAsHeap(minHeap* mh, int size) {
 		return;
 	}
 	
+	int z, i, j, k;
+	
 	int height = size;
 	printf("%d\n", height);
 	height = height / 2;
 	printf("%d\n", height);
 	
-	for (int z = 0; z < 5; z++) {
+	for ( z = 0; z < 5; z++) {
 		printf("%d ", mh->element[z].value);
 	}
 	
@@ -174,9 +183,9 @@ void displayAsHeap(minHeap* mh, int size) {
 	int bottomUp = 0;
 	int index = 0;
 	
-	for (int i = 0; i < height + 1; ++i) {
+	for ( i = 0; i < height + 1; ++i) {
 		while (topDown !=  -1) {
-			for (int k = 0; k < pow(2, topDown) - 1; k++) { //good
+			for ( k = 0; k < pow(2, topDown) - 1; k++) { //good
 				printf("   ");
 			}
 			printf("%d", mh->element[index].value);
@@ -185,9 +194,9 @@ void displayAsHeap(minHeap* mh, int size) {
 			//Are thre more things to print?
 			if (bottomUp != 0) {
 				//How many?
-				for (int i = 0; i < pow(2, bottomUp) - 1; i++) {
+				for ( i = 0; i < pow(2, bottomUp) - 1; i++) {
 					//Appropriate number of tabs
-					for (int j = 0; j < pow(2, topDown + 1) - 1; j++) {
+					for ( j = 0; j < pow(2, topDown + 1) - 1; j++) {
 						printf("   ");
 					}
 					//print the value

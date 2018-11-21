@@ -43,7 +43,9 @@ int main(int argc, const char * argv[]) {
 	
 	int myNums[size];
 	
-	for (int i = 0; i < size; i++) {
+	int i;
+	
+	for ( i = 0; i < size; i++) {
 		printf("\n\nEnter the data value to be placed in the node: ");
 		scanf("%d", &myNums[i]);
 	}
@@ -56,7 +58,7 @@ int main(int argc, const char * argv[]) {
 		//Create Tree
 		
 		Tree *bst = NULL;
-		for (int i = 0; i < size; i++) {
+		for ( i = 0; i < size; i++) {
 			bst = add(bst, myNums[i]);
 		}
 		printf("\nTree created successfully!\n");
