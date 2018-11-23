@@ -20,7 +20,7 @@ void buildMinHeap(minHeap *mh, int *arr, int size) {
 	
 	int i;
 	
-	for ( i = 0; i < size; ++i) {
+	for (i = 0; i < size; ++i) {
 		if (mh->size) {
 			mh->element = realloc(mh->element, (mh->size + 1) *sizeof(node));
 		} else {
@@ -31,7 +31,7 @@ void buildMinHeap(minHeap *mh, int *arr, int size) {
 		mh->element[(mh->size)++] = newNode;
 	}
 	
-	for(int i = (mh->size - 1) / 2; i >= 0; i--) {
+	for (i = (mh->size - 1) / 2; i >= 0; i--) {
 		percolate(mh, i);
 	}
 	

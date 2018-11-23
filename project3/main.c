@@ -91,9 +91,9 @@ int main(int argc, const char * argv[]) {
 					//Search tree
 					menuChoice = searchBST(bst, getKey());
 					if (menuChoice == 0) {
-						printf("\n%d was not found.\n", menuChoice);
+						printf("\nKey was not found.\n");
 					} else {
-						printf("\n%d was found.\n", menuChoice);
+						printf("\nKey was found.\n");
 					}
 				case 6:
 					//insert tree

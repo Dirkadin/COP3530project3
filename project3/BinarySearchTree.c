@@ -165,7 +165,7 @@ int findDepth(Tree *node) {
 
 void traversePreOrder(Tree* node) {
 	if (node != NULL) {
-		printf("%d\t", node->value);
+		printf("%d ", node->value);
 		traversePreOrder(node->left);
 		traversePreOrder(node->right);
 	}
@@ -175,14 +175,14 @@ void traversePostOrder(Tree* node) {
 	if (node != NULL) {
 		traversePostOrder(node->left);
 		traversePostOrder(node->right);
-		printf("%d\t", node->value);
+		printf("%d ", node->value);
 	}
 }
 
 void traverseInOrder(Tree* node) {
 	if (node != NULL) {
 		traverseInOrder(node->left);
-		printf("%d\t", node->value);
+		printf("%d ", node->value);
 		traverseInOrder(node->right);
 	}
 }
