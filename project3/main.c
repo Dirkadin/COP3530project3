@@ -6,9 +6,6 @@
 //  Copyright © 2018 Dirk. All rights reserved.
 //
 
-//TODO: State limit of 3 digits
-//TODO: Check traversal outputs
-//TODO: 
 
 #include <stdio.h>
 #include <string.h>
@@ -50,7 +47,7 @@ int main(int argc, const char * argv[]) {
 	int i;
 	
 	for ( i = 0; i < size; i++) {
-		printf("\n\nEnter the data value to be placed in the node: ");
+		printf("\n\nEnter the data value to be placed in the node (between 0 and 999): ");
 		scanf("%d", &myNums[i]);
 	}
 	

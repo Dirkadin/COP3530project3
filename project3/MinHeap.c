@@ -94,7 +94,7 @@ void percolate(minHeap *mh, int index) {
 void levelOrder(minHeap *mh) {
 	int i;
 	for ( i = 0; i < mh->size; i++) {
-		printf("%d ", mh->element[i].value);
+		printf("%d\t", mh->element[i].value);
 	}
 }
 
@@ -102,7 +102,7 @@ void inOrder(minHeap *mh, int index) {
 	if (findLeftChild(index) < mh->size) {
 		inOrder(mh, findLeftChild(index));
 	}
-	printf("%d ", mh->element[index].value);
+	printf("%d\t", mh->element[index].value);
 	if (findRightChild(index) < mh->size) {
 		inOrder(mh, findRightChild(index));
 	}
@@ -151,13 +151,7 @@ int checkAVLheap(minHeap* mh) {
 		return 0;
 	}
 	
-	int i;
-	
-	for ( i = 0; i < mh->size; i++) {
-		if (mh->size == 0) {
-			return 0;
-		}
-	}
+	percolate(mh, 0);
 	
 	return 1;
 }
