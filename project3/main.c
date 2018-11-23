@@ -6,6 +6,10 @@
 //  Copyright © 2018 Dirk. All rights reserved.
 //
 
+//TODO: State limit of 3 digits
+//TODO: Check traversal outputs
+//TODO: 
+
 #include <stdio.h>
 #include <string.h>
 #include "BinarySearchTree.h"

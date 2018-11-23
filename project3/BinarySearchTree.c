@@ -320,23 +320,29 @@ void displayAsTree(Tree* node) {
 			break;
 		}
 		
-		if (temp->left) {
-			enQueue(queue, &tail, temp->left);
-			printArray[index] = temp->left->value;
-			index++;
+		if (temp->left == NULL && temp->right == NULL) {
+			printf("both null");
 		} else {
-			printArray[index] = -1;
-			index++;
+			if (temp->left) {
+				enQueue(queue, &tail, temp->left);
+				printArray[index] = temp->left->value;
+				index++;
+			} else {
+				printArray[index] = -1;
+				index++;
+			}
+			
+			if (temp->right) {
+				enQueue(queue, &tail, temp->right);
+				printArray[index] = temp->right->value;
+				index++;
+			} else {
+				printArray[index] = -1;
+				index++;
+			}
 		}
 		
-		if (temp->right) {
-			enQueue(queue, &tail, temp->right);
-			printArray[index] = temp->right->value;
-			index++;
-		} else {
-			printArray[index] = -1;
-			index++;
-		}
+		
 		temp = deQueue(queue, &head);
 	}
 	
@@ -349,13 +355,19 @@ void displayAsTree(Tree* node) {
 	
 	int i, k, j;
 	
+	for (i = 0; i < 10; i++) {
+		printf("%d ", printArray[i]);
+	}
+	
+	printf("\n");
+	
 	//Rows
-	for ( i = 0; i < node->height + 1; ++i) {
+	for ( i = 0; i < sqrt((sizeof(printArray)/sizeof(int))) + 1; ++i) {
 		while (topDown !=  -1) {
 			for ( k = 0; k < pow(2, topDown) - 1; k++) { //good
 				printf("   ");
 			}
-			printf("%d", printArray[index]);
+			printf("%3d", printArray[index]);
 			index++;
 			
 			//Are thre more things to print?
@@ -370,7 +382,7 @@ void displayAsTree(Tree* node) {
 					if (printArray[index] == -1) {
 						printf("   ");
 					} else {
-						printf("%d", printArray[index]);
+						printf("%3d", printArray[index]);
 					}
 
 					index++;

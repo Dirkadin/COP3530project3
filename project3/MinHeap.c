@@ -184,8 +184,13 @@ void displayAsHeap(minHeap* mh, int size) {
 			for (j = 0; j < pow(2, topDown) - 1; j++) {
 				printf("   ");
 			}
-			printf("%3d", mh->element[index].value);
-			index++;
+			if (index > mh->size - 1) {
+				break;
+			} else {
+				printf("%3d", mh->element[index].value);
+				index++;
+			}
+			
 			
 			//Are there more things to print?
 			if (bottomUp != 0) {
@@ -201,8 +206,7 @@ void displayAsHeap(minHeap* mh, int size) {
 						printf(" ");
 					} else {
 						if (index > mh->size - 1) {
-							//Do nothing
-							//There there is nothing left in the tree
+							break;
 						} else {
 							if (mh->element[index].value == -1) {
 								printf("   ");
