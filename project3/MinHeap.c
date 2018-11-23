@@ -168,42 +168,48 @@ void displayAsHeap(minHeap* mh, int size) {
 		return;
 	}
 	
-	int z, i, j, k;
-	
-	int height = size;
-	printf("%d\n", height);
-	height = height / 2;
-	printf("%d\n", height);
-	
-	for ( z = 0; z < 5; z++) {
-		printf("%d ", mh->element[z].value);
-	}
-	
-	int topDown = height;
+	int i, j, k, l;
 	int bottomUp = 0;
 	int index = 0;
 	
-	for ( i = 0; i < height + 1; ++i) {
-		while (topDown !=  -1) {
-			for ( k = 0; k < pow(2, topDown) - 1; k++) { //good
+	int height = size / 2;
+	int topDown = height;
+	
+	
+	
+	//Rows
+	for (i = 0; i < height + 1; i++) {
+		while (topDown != -1) {
+			//First tab in
+			for (j = 0; j < pow(2, topDown) - 1; j++) {
 				printf("   ");
 			}
-			printf("%d", mh->element[index].value);
+			printf("%3d", mh->element[index].value);
 			index++;
 			
-			//Are thre more things to print?
+			//Are there more things to print?
 			if (bottomUp != 0) {
-				//How many?
-				for ( i = 0; i < pow(2, bottomUp) - 1; i++) {
-					//Appropriate number of tabs
-					for ( j = 0; j < pow(2, topDown + 1) - 1; j++) {
+				//How many are there
+				for (k = 0; k < pow(2, bottomUp) - 1; k++) {
+					//Tabbing over to print
+					for (l = 0; l < pow(2, topDown + 1) -1; l++) {
 						printf("   ");
 					}
-					//print the value
+					
+					//Print the value
 					if (mh->element[index].value == -1) {
-						printf("   ");
+						printf(" ");
 					} else {
-						printf("%d", mh->element[index].value);
+						if (index > mh->size - 1) {
+							//Do nothing
+							//There there is nothing left in the tree
+						} else {
+							if (mh->element[index].value == -1) {
+								printf("   ");
+							}
+							printf("%3d", mh->element[index].value);
+						}
+						
 					}
 					
 					index++;
@@ -215,4 +221,5 @@ void displayAsHeap(minHeap* mh, int size) {
 			bottomUp++;
 		}
 	}
+	
 }
